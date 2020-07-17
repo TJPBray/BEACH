@@ -1,10 +1,26 @@
 function varargout = BEACH_ADC(varargin)
-% ROIANAL MATLAB code for roianal.fig
+
+%% Dr Tim Bray
+% t.bray@ucl.ac.uk
 %
-% roianal(vol)
-% roianal(vol, matp, 'parameter',value,...)
+% This code implements the tool for ADC measurement described in:
+% Histographic analysis of oedema and fat in inflamed bone marrow based on qMRI.
+% Bray et al. European Radiology April 2020
 %
-% [handles, roi] = roianal(...) 
+% The code is based on the earlier 'roianal' software with additional
+% functionality to enable 
+% (1) semi-automated ROI placement once the observer has defined the joint
+% (2) histographic analysis of voxel values in the ROI
+% (3) in BEACH_FF, the ROIs are automatically propagated onto R2* maps  
+% (acquired together with the PDFF maps) to enable 2D histogram / density
+% analysis - this version therefore requires two inputs
+%
+%% 
+% BEACH_ADC(ADCvol)
+
+% BEACH_ADC(ADCvol, matp, 'parameter',value,...)
+%
+% [handles, roi] = BEACH_ADC(...) 
 %
 % outp is a structure from d2mat with outp.geom.XData and YData, or
 % outp.XData and YData
@@ -13,16 +29,16 @@ function varargout = BEACH_ADC(varargin)
 %  'ismodal'  true | {false}
 %  'Name' 
 %
-%      ROIANAL, by itself, creates a new ROIANAL or raises the existing
+%      BEACH_ADC, by itself, creates a new BEACH_ADC or raises the existing
 %      singleton*.
 %
-%      H = ROIANAL returns the handle to a new ROIANAL or the handle to
+%      H = BEACH_ADC returns the handle to a new BEACH_ADC or the handle to
 %      the existing singleton*.
 %
-%      ROIANAL('CALLBACK',hObject,eventData,handles,...) calls the local
+%      BEACH_ADC('CALLBACK',hObject,eventData,handles,...) calls the local
 %      function named CALLBACK in ROIANAL.M with the given input arguments.
 %
-%      ROIANAL('Property','Value',...) creates a new ROIANAL or raises the
+%      BEACH_ADC('Property','Value',...) creates a new BEACH_ADC or raises the
 %      existing singleton*.  Starting from the left, property value pairs are
 %      applied to the GUI before roianal_OpeningFcn gets called.  An
 %      unrecognized property name or invalid value makes property application
@@ -30,6 +46,7 @@ function varargout = BEACH_ADC(varargin)
 %
 %      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
 %      instance to run (singleton)".
+%
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES, profile_anal
 
