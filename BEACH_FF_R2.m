@@ -1,4 +1,4 @@
-function varargout = roianal(varargin)
+function varargout = BEACH_FF_R2(varargin)
 %% Dr Tim Bray
 % t.bray@ucl.ac.uk
 %
