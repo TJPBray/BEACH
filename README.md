@@ -13,8 +13,10 @@ To analyse a stack of ADC values, use BEACH_ADC(ADC)
 
 To analyse two stacks of FF and R2* values acquired together (and generated 2D-histograms / density maps), use BEACH_FF_R2(FF,R2star)
 
+BEACH_FF_R2 generates 2D histograms / heatmaps and could be used for cluster analysis or similar although this is not fully implemented at present. 
+
 Examples of all three data types (ADC, FF, R2star) are provided in the testdata folder.
 
-The histographic analysis is implemented by the 'Histogram' pushbutton and can be modified in the corresponding functions in the BEACH_ADC.m and BEACH_FF_R2.m files. 
+Histographic analysis is implemented by the 'Histogram' pushbutton and can be modified in the corresponding functions in the BEACH_ADC.m and BEACH_FF_R2.m files. 
 
 
