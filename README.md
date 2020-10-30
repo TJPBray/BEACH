@@ -17,6 +17,8 @@ BEACH_FF_R2 generates 2D histograms / heatmaps and could be used for cluster ana
 
 Examples of all three data types (ADC, FF, R2star) are provided in the testdata folder.
 
+When generating the ROIs, the outer width can be set to 7 and the inner width should be set to 3 (this could also be modified depending on image dimensions if needed). Labels such as R1, L1, R2, L2... can be used to specify the left and right joints on the relevant slices. 
+
 Histographic analysis is implemented by the 'Histogram' pushbutton and can be modified in the corresponding functions in the BEACH_ADC.m and BEACH_FF_R2.m files. 
 
 
